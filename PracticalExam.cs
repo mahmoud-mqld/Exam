@@ -15,19 +15,10 @@ namespace Exam
 
         public override void ShowExam()
         {
-            int? grade = 0;
-
             foreach (var question in Quistions)
             {
                 question.ShowQuestion();
-                grade = +question.Mark;
-
-            }
-
-            foreach (var question in Quistions)
-            {
-                Console.WriteLine($"{question.Body} \n {question.Mark} \n {grade} marks  ");
-
+                Console.WriteLine();
             }
         }
         public override void StartExam()
