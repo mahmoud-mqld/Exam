@@ -8,18 +8,50 @@ namespace Exam
 {
     internal class FinalExam : Exam
     {
-        public FinalExam(int? time, int? numOfQuistions, Subject subject) : base(time, numOfQuistions, subject)
+        public FinalExam(int? time, int? numOfQuistions,  Quistion[] quistions) : base(time, numOfQuistions, quistions)
         {
         }
 
         public override void ShowExam()
         {
-            throw new NotImplementedException();
-        }
+            //int? grade=0;
 
-        public override string? ToString()
+            //foreach (var question in Quistions) 
+            //{ 
+            //    question.ShowQuestion();
+            //    grade = +question.Mark;
+
+            //}
+
+            //foreach (var question in Quistions)
+            //{
+            //    Console.WriteLine($"{question.Body} \n {question.Mark} \n {grade} marks  ");
+
+            //}
+
+            foreach (var question in Quistions)
+            {
+                question.ShowQuestion();
+                //    Console.WriteLine();
+
+            }
+        }
+            public override void StartExam()
         {
-            return base.ToString();
+            int?totalMarks = 0;
+            foreach (var question in Quistions)
+            {
+                question.ShowQuestion();
+                Console.WriteLine("Your Answer: ");
+                int userAnswer = Convert.ToInt32(Console.ReadLine());
+
+                if (question.AnswerList[userAnswer - 1].ID == question.RightAnswer.ID)
+                {
+                    totalMarks += question.Mark;
+                }
+            }
+            Console.WriteLine($"Total Marks: {totalMarks}");
         }
     }
-}
+
+    }

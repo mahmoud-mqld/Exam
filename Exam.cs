@@ -10,16 +10,18 @@ namespace Exam
     {
         public int? Time {  get; set; } 
         public int? NumOfQuistions { get; set; }
-        public Subject? Subject { get; set; }
 
-        public Exam(int? time, int? numOfQuistions, Subject subject)
+        public Quistion[] Quistions { get; set; }
+
+        protected Exam(int? time, int? numOfQuistions,  Quistion[] quistions)
         {
             Time = time;
             NumOfQuistions = numOfQuistions;
-            Subject = subject ?? throw new ArgumentNullException(nameof(subject));
+            Quistions = quistions;
         }
 
         public abstract void ShowExam();
+        public abstract void StartExam();
     }
 
 

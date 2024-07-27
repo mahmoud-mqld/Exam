@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exam
 {
-    internal class MCQQ : Quistion
+    public class MCQQ : Quistion
 
     {
         public MCQQ(string? header, string? body, int? mark, Answer[]? answerList, Answer? rightAnswer) : base(header, body, mark, answerList, rightAnswer)
@@ -15,10 +15,16 @@ namespace Exam
 
         public override void ShowQuestion()
         {
-            Console.WriteLine($"{Header}\n{Body}");
-            foreach (var answer in AnswerList)
-            {
-                Console.WriteLine($"{answer.ID}. {answer.Text}");
+            if (AnswerList is not null)
+            { 
+
+                  Console.WriteLine($"{Header} : {Body} (Mark: {Mark}");
+                foreach (var answer in AnswerList)
+                {
+                    Console.WriteLine($"{answer.ID}. {answer.Text}");
+                }
+
+
             }
         }
     }

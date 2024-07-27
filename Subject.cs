@@ -7,20 +7,33 @@ using System.Xml.Linq;
 
 namespace Exam
 {
-    internal class Subject
+     class Subject
     {
         public int? ID {  get; set; }   
-        public string? Name { get; set; }    
-        
-       public Exam? Exam { get; set; } 
+        public string? Name { get; set; }
+
+        public Subject(int? iD, string? name)
+        {
+            ID = iD;
+            Name = name;
+        }
+
+        public Exam? Exam { get; set; } 
    public override string ToString()
     {
         return $"Subject ID: {ID}, Subject Name: {Name}";
     }
-
-        public void CreateExam(Exam exam)
+        
+        public void CreateExam(int examType, int time, int numberOfQuestions, Quistion[] questions) 
         {
-            Exam = exam;
+            if (examType == 1)
+            {
+                Exam = new FinalExam(time, numberOfQuestions,  questions);
+            }
+            else if (examType == 2)
+            {
+                Exam = new PracticalExam(time, numberOfQuestions,  questions);
+            }
         }
     } 
 }

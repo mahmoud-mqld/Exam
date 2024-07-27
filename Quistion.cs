@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exam
 {
-    internal abstract class Quistion
+    public abstract class Quistion
     {
         public string? Header { get; set; }  
         public string? Body { get; set; }   
